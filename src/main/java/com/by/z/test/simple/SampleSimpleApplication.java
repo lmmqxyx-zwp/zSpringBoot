@@ -1,5 +1,3 @@
-
-
 /*
  * Copyright 2012-2016 the original author or authors.
  *
@@ -25,6 +23,14 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+/**
+ * 这个不同于 {@link com.by.z.test.a.SampleController}
+ *
+ * 注意 annotation {@link SpringBootApplication}
+ * @see org.springframework.web.servlet.mvc.Controller
+ *
+ * @author zwp
+ */
 @SpringBootApplication
 public class SampleSimpleApplication implements CommandLineRunner {
 
