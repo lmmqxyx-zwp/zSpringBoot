@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.by.z.springboot</groupId>
+    <artifactId>zSpringBoot</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>zSpringBoot</name>
+
+    <!-- 常量 -->
+    <properties>
+        <z.springboot.version>3.1.2.RELEASE</z.springboot.version>
+    </properties>
+
+    <url>http://maven.apache.org</url>
+
+    <!-- 依赖 -->
+    <!-- 来自 http://projects.spring.io/spring-boot/ -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.8.RELEASE</version>
+    </parent>
+    <dependencies>
+        <!-- spring boot 引入 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
+
+    <!-- 仓库 -->
+    <repositories>
+    <repository>
+        <id>MavenRepository</id>
+        <name>MavenRepository</name>
+        <url>http://mvnrepository.com</url>
+        <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+    </repositories>
+  
+  <!-- 编译 -->
+	<build>
+        <finalName>${project.artifactId}</finalName>
+		<outputDirectory>${project.basedir}/src/main/webapp/WEB-INF/classes/</outputDirectory>
+		<plugins>
+			<!-- Compiler 插件, 设定JDK版本 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+					<showWarnings>true</showWarnings>
+				</configuration>
+			</plugin>
+			
+			<!-- resource插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.7</version>
+			</plugin>
+			
+			<!-- install插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5.2</version>
+			</plugin>
+			
+			<!-- clean插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.6.1</version>
+			</plugin>
+			
+			<!-- ant插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+			</plugin>
+			
+			<!-- dependency插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+			</plugin>
+		</plugins>
+		
+		<resources>
+			<!-- 先指定 src/main/resources下所有文件及文件夹为资源文件 -->
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+			<!-- 设置对auto-config.properties，jdbc.properties进行过虑，即这些文件中的${key}会被替换掉为真正的值 -->
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>zps.properties</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+	
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<!-- 默认激活开发配制，使用config-dev.properties来替换设置过虑的资源文件中的${key} -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<filters>
+					<filter>src/main/resources/config-dev.properties</filter>
+				</filters>
+			</build>
+			<properties>
+				<jdk.version>1.7</jdk.version>
+			</properties>
+		</profile>
+		
+		<profile>
+			<id>test</id>
+			<build>
+				<filters>
+					<filter>src/main/resources/config-test.properties</filter>
+				</filters>
+			</build>
+			<properties>
+				<jdk.version>1.7</jdk.version>
+			</properties>
+		</profile>
+		
+		<!-- 正式环境 -->
+		<profile>
+			<id>zps</id>
+			<build>
+				<filters>
+					<filter>src/main/resources/config-zps.properties</filter>
+				</filters>
+			</build>
+			<properties>
+				<jdk.version>1.8</jdk.version>
+			</properties>
+		</profile>
+	</profiles>
+	
+  	<!-- 开发者信息 -->
+	<developers>  
+		<developer>
+			<id>byvaio</id>
+			<name>zwp</name>
+			<email>byvaio@outlook.com</email>
+			<roles><role>root</role></roles>
+			<timezone>+8</timezone>
+		</developer>
+	</developers>
+	
+</project>
