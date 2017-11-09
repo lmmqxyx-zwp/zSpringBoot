@@ -32,9 +32,16 @@
         </dependency>
     <!-- 核心 End  、 ########################################################################################-->
 
+        <!-- 启动 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+
+        <!-- batch -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-batch</artifactId>
         </dependency>
 
         <!-- hibernate validator -->
