@@ -45,10 +45,10 @@
         </dependency>
 
         <!-- hibernate validator -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!-- enerating your own meta-data using the annotation processor -->
         <dependency>
@@ -63,16 +63,27 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+		<!-- jpa和mysql依赖配置 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
     </dependencies>
 
     <!-- 仓库 -->
     <repositories>
-    <repository>
-        <id>MavenRepository</id>
-        <name>MavenRepository</name>
-        <url>http://mvnrepository.com</url>
-        <snapshots><enabled>true</enabled></snapshots>
-    </repository>
+        <repository>
+            <id>MavenRepository</id>
+            <name>MavenRepository</name>
+            <url>http://mvnrepository.com</url>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
     </repositories>
   
     <!-- 编译 -->

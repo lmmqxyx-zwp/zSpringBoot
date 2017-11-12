@@ -1,0 +1,6 @@
+#yml application spring boot文件
+
+server:
+  port:8080
+  tomcat:
+    uri-encoding: utf-8
