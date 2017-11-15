@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.by.z.test.simple;
+package com.by.z.test.d;
 
-import com.by.z.test.simple.service.HelloWorldService;
+import com.by.z.test.d.service.HelloWorldService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.by.z.test.simple.service;
+package com.by.z.test.d.service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

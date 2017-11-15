@@ -1,0 +1,17 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.by.z.test.d.SampleConfigurationProperties",
+      "name": "sample",
+      "type": "com.by.z.test.d.SampleConfigurationProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.by.z.test.d.SampleConfigurationProperties",
+      "name": "sample.name",
+      "type": "java.lang.String"
+    }
+  ]
+}

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.by.z.test.simple;
+package com.by.z.test.d;
 
 import org.junit.After;
 import org.junit.Before;
